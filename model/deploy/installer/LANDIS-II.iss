@@ -6,7 +6,7 @@
 
 ;#define BuildDir         SolutionDir + "\build"
 #define BuildDir         "..\..\build"
-#define ReleaseConfigDir BuildDir + "\Debug"
+#define ReleaseConfigDir BuildDir + "\Release"
 
 #define StagingDir         BuildDir + "\install"
 #define ReleaseStagingDir  StagingDir + "\Release"
