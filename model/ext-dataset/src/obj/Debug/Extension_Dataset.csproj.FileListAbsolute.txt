@@ -1,0 +1,5 @@
+C:\Users\avala\Desktop\core-model\model\ext-dataset\src\obj\Debug\Extension_Dataset.csprojResolveAssemblyReference.cache
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Extensions.Dataset.dll
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Extensions.Dataset.pdb
+C:\Users\avala\Desktop\core-model\model\ext-dataset\src\obj\Debug\Landis.Extensions.Dataset.dll
+C:\Users\avala\Desktop\core-model\model\ext-dataset\src\obj\Debug\Landis.Extensions.Dataset.pdb

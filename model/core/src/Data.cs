@@ -1,5 +1,5 @@
-using Edu.Wisc.Forest.Flel.Util;
-using Flel = Edu.Wisc.Forest.Flel;
+using Landis.Utilities;
+using Flel = Landis.Utilities;
 using System;
 using System.IO;
 using System.Runtime.Serialization;
@@ -133,7 +133,7 @@ namespace Landis
 
             string dir = Path.GetDirectoryName(path);
             if (! string.IsNullOrEmpty(dir)) {
-                Flel.Util.Directory.EnsureExists(dir);
+                Landis.Utilities.Directory.EnsureExists(dir);
             }
 
             return new StreamWriter(path);

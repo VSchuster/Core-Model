@@ -31,17 +31,18 @@
     <OutputPath>..\build\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\Release\</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Landis.Library.Utilities">
+      <HintPath>..\libs\Landis.Library.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
-    <Reference Include="Edu.Wisc.Forest.Flel.Util">
-      <HintPath>..\libs\Edu.Wisc.Forest.Flel.Util.dll</HintPath>
-    </Reference>
     <Reference Include="Landis.SpatialModeling">
       <HintPath>..\libs\Landis.SpatialModeling.dll</HintPath>
     </Reference>

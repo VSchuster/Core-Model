@@ -1,0 +1,5 @@
+C:\Users\avala\Desktop\core-model\model\build\Release\Landis.Core.Implementation.dll
+C:\Users\avala\Desktop\core-model\model\build\Release\Landis.Core.Implementation.pdb
+C:\Users\avala\Desktop\core-model\model\core\src\Implementation\obj\Release\Core_Implementation.csprojResolveAssemblyReference.cache
+C:\Users\avala\Desktop\core-model\model\core\src\Implementation\obj\Release\Landis.Core.Implementation.dll
+C:\Users\avala\Desktop\core-model\model\core\src\Implementation\obj\Release\Landis.Core.Implementation.pdb

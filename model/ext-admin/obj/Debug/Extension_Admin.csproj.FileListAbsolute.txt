@@ -1,0 +1,5 @@
+C:\Users\avala\Desktop\core-model\model\ext-admin\obj\Debug\Extension_Admin.csprojResolveAssemblyReference.cache
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Extensions.exe
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Extensions.pdb
+C:\Users\avala\Desktop\core-model\model\ext-admin\obj\Debug\Landis.Extensions.exe
+C:\Users\avala\Desktop\core-model\model\ext-admin\obj\Debug\Landis.Extensions.pdb

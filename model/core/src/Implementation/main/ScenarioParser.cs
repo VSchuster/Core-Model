@@ -1,4 +1,4 @@
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 using Landis.Core;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace Landis
     /// A parser that reads a model scenario from text input.
     /// </summary>
     public class ScenarioParser
-        : Landis.TextParser<Scenario>
+        : TextParser<Scenario>
     {
         private enum ValidExtensionTypes {
             SuccessionOnly,

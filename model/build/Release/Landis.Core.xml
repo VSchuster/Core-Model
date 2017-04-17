@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Landis.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Landis.Data">
+            <summary>
+            Methods for working with Landis data.
+            </summary>
+        </member>
+        <member name="F:Landis.Data.InputVarName">
+            <summary>
+            The name of the InputVariable that appears first in Landis text
+            input.
+            </summary>
+        </member>
+        <member name="F:Landis.Data.FileExtension">
+            <summary>
+            The filename extension for files with serialized Landis data
+            objects.
+            </summary>
+        </member>
+        <member name="T:Landis.Data.CommentMarkers">
+            <summary>
+            The markers for comments in Landis text data.
+            </summary>
+        </member>
+        <member name="F:Landis.Data.CommentMarkers.Line">
+            <summary>
+            The marker for comment lines.
+            </summary>
+        </member>
+        <member name="F:Landis.Data.CommentMarkers.EndOfLine">
+            <summary>
+            The marker for end-of-line comments.
+            </summary>
+        </member>
+        <member name="M:Landis.Data.OpenTextFile(System.String)">
+            <summary>
+            Opens a text file for reading.
+            </summary>
+            <remarks>
+            The file is configured so that blank lines and comment lines are
+            skipped, and end-of-line comments are trimmed.  The marker for
+            comment lines is ">" while the marker for end-of-line comments is
+            "&lt;&lt;".
+            </remarks>
+        </member>
+        <member name="M:Landis.Data.Load``1(System.String,Landis.Utilities.ITextParser{``0})">
+            <summary>
+            Loads an instance of T from a file.  The file may contain a
+            serialized form of an editable instance or it may be a text file
+            that needs parsing.
+            </summary>
+        </member>
+        <member name="M:Landis.Data.CreateTextFile(System.String)">
+             <summary>
+             Creates a new text file for writing.
+             </summary>
+             <param name="path">
+             Path of the text file.
+             </param>
+             <remarks>
+             If the path contains any directories that does not exists, they
+             are created.
+            
+             If the file already exists, its current contents are overwritten.
+             </remarks>
+        </member>
+        <member name="T:Landis.Core.ExtensionInfo">
+            <summary>
+            Information about an extension.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ExtensionInfo.#ctor(System.String,Landis.Core.ExtensionType,System.String)">
+            <summary>
+            Initializes a new instance.
+            </summary>
+            <param name="name">The extension's name</param>
+            <param name="type">The extension's type</param>
+            <param name="mainClass">The AssemblyQualifiedName of the
+            extension's main class (dervied from ExtensionMain).</param>
+        </member>
+        <member name="P:Landis.Core.ExtensionInfo.Type">
+            <summary>
+            The extension's type.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.ExtensionMain">
+            <summary>
+            Base class for extensions.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ExtensionMain.#ctor(System.String,Landis.Core.ExtensionType)">
+            <summary>
+            Initializes a new instance.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ExtensionMain.Name">
+            <summary>
+            The extension's name.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ExtensionMain.PlugInType">
+            <summary>
+            The extension's type.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ExtensionMain.Type">
+            <summary>
+            The extension's type.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ExtensionMain.Timestep">
+            <summary>
+            The extension's timestep (years).
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ExtensionMain.Initialize">
+            <summary>
+            Initializes the extension with a data file.
+            </summary>
+            <param name="dataFile">
+            Path to the file with initialization data.
+            </param>
+        </member>
+        <member name="M:Landis.Core.ExtensionMain.LoadParameters(System.String,Landis.Core.ICore)">
+            <summary>
+            Loads parameters for the extension from a data file.
+            </summary>
+            <param name="dataFile">
+            Path to the file with initialization data.
+            </param>
+            <param name="modelCore">
+            The model's core framework.
+            </param>
+        </member>
+        <member name="M:Landis.Core.ExtensionMain.Run">
+            <summary>
+            Runs the extension for the current timestep.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.ExtensionType">
+            <summary>
+            The type of a plug-in.
+            </summary>
+            <remarks>
+            Each type has a unique name, for example: "succession", "output",
+            "disturbance:wind".  For types that belong to the same group, the name
+            of the group appears first followed by a colon.  For example,
+            "disturbance:fire" and "disturbance:wind".
+            </remarks>
+        </member>
+        <member name="M:Landis.Core.ExtensionType.#ctor(System.String)">
+            <summary>
+            Initializes a new instance.
+            </summary>
+            <param name="name">The type's name.</param>
+        </member>
+        <member name="P:Landis.Core.ExtensionType.Name">
+            <summary>
+            The type's name.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ExtensionType.IsMemberOf(System.String)">
+            <summary>
+            Determines if the type is a member of a group of types.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.ICore">
+            <summary>
+            Interface to the core framework for extensions.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.UI">
+            <summary>
+            The user interface that the model writes information to.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.Species">
+            <summary>
+            The dataset of species parameters for the scenario.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.Ecoregions">
+            <summary>
+            The dataset of ecoregion parameters for the scenario.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.Ecoregion">
+            <summary>
+            The ecoregion for each site on the landscape.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.Landscape">
+            <summary>
+            The landscape for the scenario.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.CellLength">
+            <summary>
+            The length of a side of a cell (a site on landscape).
+            </summary>
+            <remarks>
+            Units: meters
+            </remarks>
+        </member>
+        <member name="P:Landis.Core.ICore.CellArea">
+            <summary>
+            The area of a cell (a site on landscape).
+            </summary>
+            <remarks>
+            Units: hectares
+            </remarks>
+        </member>
+        <member name="P:Landis.Core.ICore.StartTime">
+            <summary>
+            The calendar year that the scenario starts from.
+            </summary>
+            <remarks>
+            This year represents time step 0, so the first year in the scenario
+            is this year plus 1.
+            </remarks>
+        </member>
+        <member name="P:Landis.Core.ICore.EndTime">
+            <summary>
+            The last calendar year in the scenario.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.CurrentTime">
+            <summary>
+            The calendar year in the current time step.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ICore.TimeSinceStart">
+            <summary>
+            The number of years from StartTime to CurrentTime.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ICore.RegisterSiteVar(Landis.SpatialModeling.ISiteVariable,System.String)">
+            <summary>
+            Registers a site variable under a specific name.
+            </summary>
+            <param name="siteVar">
+            The site variable being registered.
+            </param>
+            <param name="name">
+            The name under which the site variable is to be registered.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            At least one of the parameters is null.
+            </exception>
+            <exception cref="T:System.ApplicationException">
+            Another site variable has been previously registered with the same
+            name.
+            </exception>
+        </member>
+        <member name="M:Landis.Core.ICore.GetSiteVar``1(System.String)">
+            <summary>
+            Gets a site variable with a specific name and data type.
+            </summary>
+            <param name="name">
+            The name under which the site variable is registered.
+            </param>
+            <returns>
+            The site variable that was registered under the given name, or null
+            if no site variable has been registered under the name.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            name is null.
+            </exception>
+            <exception cref="T:System.ApplicationException">
+            The site variable registered with the given name has a different
+            data type.
+            </exception>
+        </member>
+        <member name="M:Landis.Core.ICore.Info(System.String,System.Object[])">
+            <summary>
+            Writes an informational message into the log.
+            </summary>
+            <param name="message">
+            Message to write into the log.  It may contain placeholders for
+            optional arguments using the "{n}" notation used by the
+            System.String.Format method.
+            </param>
+            <param name="mesgArgs">
+            Optional arguments for the message.
+            </param>
+        </member>
+        <member name="M:Landis.Core.ICore.Initialize(System.UInt32)">
+            <summary>
+            Initializes the random-number generator with a specific seed.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.ICore.GenerateSeed">
+            <summary>
+            Generates a non-zero random seed using the system clock.
+            This was found to fail on Mac OSX, due to identical results returned from System.Random (due to an internal error in System.Environment.TickCount)
+            System.Random was replaced with System.Security.Cryptography.RandomNumberGenerator by Brendan C. Ward on 6/4/2008
+            </summary>
+        </member>
+        <member name="T:Landis.Core.IEcoregion">
+            <summary>
+            The information for an ecoregion (its index and parameters).
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregion.Index">
+            <summary>
+            Index of the ecoregion in the dataset of ecoregion parameters.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.IEcoregionDataset">
+            <summary>
+            A read-only collection of ecoregion parameters.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionDataset.Count">
+            <summary>
+            The number of ecoregions in the dataset.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionDataset.Item(System.Int32)">
+            <summary>
+            Gets the parameters for a ecoregion.
+            </summary>
+            <param name="index">
+            The ecoregion's index in the dataset.
+            </param>
+        </member>
+        <member name="P:Landis.Core.IEcoregionDataset.Item(System.String)">
+            <summary>
+            Gets the parameters for a ecoregion.
+            </summary>
+            <param name="name">
+            The ecoregion's name.
+            </param>
+        </member>
+        <member name="M:Landis.Core.IEcoregionDataset.Find(System.UInt16)">
+            <summary>
+            Finds an ecoregion's parameters by its map code.
+            </summary>
+            <param name="mapCode">
+            The ecoregion's map code.
+            </param>
+        </member>
+        <member name="T:Landis.Core.IEcoregionParameters">
+            <summary>
+            The parameters for an ecoregion that can be edited.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionParameters.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionParameters.Description">
+            <summary>
+            Description, e.g., "wetlands", "water", or "pine barrens".
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionParameters.MapCode">
+            <summary>
+            Code that identifies the ecoregion on a map.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IEcoregionParameters.Active">
+            <summary>
+            Indicates whether the sites in the ecoregion are active in a
+            scenario.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.IExtensionDataset">
+            <summary>
+            A collection of information about installed extensions.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IExtensionDataset.Count">
+            <summary>
+            The number of extensions in the dataset.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IExtensionDataset.Item(System.String)">
+            <summary>
+            Gets the information for an extension.
+            </summary>
+            <returns>
+            null if there is no extension installed with the specified name.
+            </returns>
+        </member>
+        <member name="T:Landis.Core.ISpecies">
+            <summary>
+            The information for a tree species (its index and parameters).
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpecies.Index">
+            <summary>
+            Index of the species in the dataset of species parameters.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.ISpeciesDataset">
+            <summary>
+            A read-only collection of species parameters.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesDataset.Count">
+            <summary>
+            The number of species in the dataset.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesDataset.Item(System.Int32)">
+            <summary>
+            Gets the parameters for a species.
+            </summary>
+            <param name="index">
+            The species's index in the dataset.
+            </param>
+        </member>
+        <member name="P:Landis.Core.ISpeciesDataset.Item(System.String)">
+            <summary>
+            Gets the parameters for a species.
+            </summary>
+            <param name="name">
+            The species's name.
+            </param>
+        </member>
+        <member name="T:Landis.Core.ISpeciesParameters">
+            <summary>
+            The parameters for a tree species that can be edited.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.Longevity">
+            <summary>
+            Longevity (years)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.Maturity">
+            <summary>
+            Age of sexual maturity (years)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.ShadeTolerance">
+            <summary>
+            Shade tolerance class (1-5)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.FireTolerance">
+            <summary>
+            Fire tolerance class (1-5)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.EffectiveSeedDist">
+            <summary>
+            Effective seed dispersal distance (m?)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.MaxSeedDist">
+            <summary>
+            Maximum seed dispersal distance (m?)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.VegReprodProb">
+            <summary>
+            Vegetative reproduction probability
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.MinSproutAge">
+            <summary>
+            Minimum age for sprouting (years)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.MaxSproutAge">
+            <summary>
+            Maximum age for sprouting (years)
+            </summary>
+        </member>
+        <member name="P:Landis.Core.ISpeciesParameters.PostFireRegeneration">
+            <summary>
+            The form of reproduction that occurs after fires.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.IUserInterface">
+            <summary>
+            The user interface for Landis.
+            </summary>
+        </member>
+        <member name="P:Landis.Core.IUserInterface.TextWriter">
+            <summary>
+            Access the user interface as a text writer.
+            </summary>
+            <remarks>
+            Default value is TextWriter.Null.
+            </remarks>
+        </member>
+        <member name="M:Landis.Core.IUserInterface.WriteLine">
+            <summary>
+            Writes a line terminator to the user interface and the application
+            log.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.IUserInterface.WriteLine(System.String)">
+            <summary>
+            Writes a string followed by a line terminator to the user
+            interface and the application log.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.IUserInterface.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes a formatted string to the user interface and the application
+            log, using the same semantics as System.String.Format.  A line
+            terminator is written after the formatted string.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.PostFireRegeneration">
+            <summary>
+               Forms of cohort reproduction that can occur after fires.
+            </summary>
+        </member>
+        <member name="F:Landis.Core.PostFireRegeneration.None">
+            <summary>
+            No forms of reproduction occur after fires.
+            </summary>
+        </member>
+        <member name="F:Landis.Core.PostFireRegeneration.Resprout">
+            <summary>
+            Resprouting can occur after fires.
+            </summary>
+        </member>
+        <member name="F:Landis.Core.PostFireRegeneration.Serotiny">
+            <summary>
+            Serotiny can occur after fires.
+            </summary>
+        </member>
+        <member name="T:Landis.Core.SuccessionMain">
+            <summary>
+            Base class for succession plug-ins.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.SuccessionMain.#ctor(System.String)">
+            <summary>
+            Initializes a new instance.
+            </summary>
+        </member>
+        <member name="M:Landis.Core.SuccessionMain.InitializeSites(System.String,System.String,Landis.Core.ICore)">
+            <summary>
+            Initializes the site cohorts for the active sites.
+            </summary>
+            <param name="initialCommunities">
+            Path to the file with initial communities' definitions.
+            </param>
+            <param name="initialCommunitiesMap">
+            Path to the raster file showing where the initial communities are.
+            </param>
+        </member>
+        <member name="T:Landis.TextParser`1">
+            <summary>
+            A text parser for Landis data.
+            </summary>
+        </member>
+        <member name="P:Landis.TextParser`1.LandisDataValue">
+            <summary>
+            The expected value for the LandisData InputVariable.
+            </summary>
+        </member>
+        <member name="M:Landis.TextParser`1.ReadLandisDataVar">
+               <summary>
+            Reads the InputVariable LandisData from the current line, and
+            checks that its value matches the expected value.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,4 @@
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 using System.Collections.Generic;
 
 using Landis.Core;
@@ -9,9 +9,10 @@ namespace Landis.Species
     /// A parser that reads a dataset of species parameter from text input.
     /// </summary>
     public class DatasetParser
-        : Landis.TextParser<ISpeciesDataset>
+        //: Landis.TextParser<ISpeciesDataset>
+        : TextParser<ISpeciesDataset>
     {
-        public override string LandisDataValue
+        public override string LandisDataValue        
         {
             get {
                 return "Species";

@@ -1,0 +1,5 @@
+C:\Users\avala\Desktop\core-model\model\console\obj\Debug\Console.csprojResolveAssemblyReference.cache
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Console-6.1.exe
+C:\Users\avala\Desktop\core-model\model\build\Debug\Landis.Console-6.1.pdb
+C:\Users\avala\Desktop\core-model\model\console\obj\Debug\Landis.Console-6.1.exe
+C:\Users\avala\Desktop\core-model\model\console\obj\Debug\Landis.Console-6.1.pdb
